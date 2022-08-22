@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href= "/assets/profile.css" rel="stylesheet" type="text/css" />
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link href= "/assets/test.css" rel="stylesheet" type="text/css" />
+    
+  <title>Twitter Profile</title>
+</head>
+<body>
+    <section class="h-100 gradient-custom-2">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-9 col-xl-7">
+              <div class="card">
+               
+                <div class="rounded-top text-white d-flex flex-row" style="background-color: rgb(0, 200, 255); height:200px;">
+                  <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                    <img src=<%= result.pic %>
+                      alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                      style="width: 150px; z-index: 1">
+                    
+                  </div>
+                
+  
+                  <div class="ms-3" style="margin-top: 130px;">
+                    <h5><%= result.username %></h5>
+                    <p><%= result.email %></p>
+                  </div>
+                </div>
+                <div class="p-4 text-black" style="background-color: #f8f9fa;">
+                  <div class="d-flex justify-content-end text-center py-1">
+                    <div>
+                      <p class="mb-1 h5"><%=tweets.length %></p>
+                      <p class="small text-muted mb-0">Tweets</p>
+                    </div>
+                  </div>
+                </div>
+
+
+              
+
+
+                <div class="card-body p-4 text-black" style="background-color: rgb(0, 200, 255);">
+                  <div class="mb-5" style="background-color: rgb(0, 200, 255);">
+                    <p class="lead fw-normal mb-1 text-center">Tweets</p>
+                    <div class="p-4" style="background-color: #f8f9fa;">
+                        <% tweets.forEach(tweet => { %>        
+                            <!-- post starts -->
+                            <div class="post">
+                              <div class="post__avatar">
+                          <img  
+                                 src= <%= tweet.pic %>
+                              alt=""
+                                />
+                              </div>
+                      
+                              <div class="post__body">
+                                <div class="post__header">
+                                  <div class="post__headerText">
+                                    <h3>
+                                         <%= tweet.username %>
+                                      <span class="post__headerSpecial"
+                                        ><span class="material-icons post__badge"> verified </span> </span
+                                      >
+                                    </h3>
+                                  </div>
+                                  <div class="post__headerDescription">
+                                    <p><%= tweet.content %></p> 
+                                  </div>
+                                </div>
+                                <div class="post__footer" style="justify-content: flex-end;">
+                                  <a href="/delete?email=<%= tweet.email %>&content=<%= tweet.content %>" style="text-decoration:none ;color:black ;"><span class="material-icons"> delete </span></a>
+                                </div>
+                              </div>
+                            </div>
+                            <% }); %> 
+                    </div>
+                  </div>
+                  
+
+                 </div> 
+              </div> 
+            </div> 
+                </div>
+        </div> 
+      </section>
+      <script>
+    
+      </script>
+</body>
+</html>

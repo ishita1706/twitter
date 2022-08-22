@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href= "/assets/login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <h2 class="active"> Sign Up </h2>
+
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img id='icon' src="https://static01.nyt.com/images/2014/08/10/magazine/10wmt/10wmt-articleLarge-v4.jpg?quality=75&auto=webp&disable=upscale" alt="logo" style="overflow: hidden ;">
+
+          </div>
+      
+          <!-- Login Form -->
+          <form action="/signup" method="post" onsubmit=" return validate()">
+            <input type="text" id="name" class="fadeIn second" name="name" placeholder="Name">
+            <input type="text" id="email" class="fadeIn second" name="username" placeholder="Email">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="Password">
+            <input type="submit" class="fadeIn fourth" value="Sign Up">
+          </form>
+      
+        </div>
+      </div>
+      <script>
+        function validate(){
+      
+          var email=document.getElementById('email').value;
+          var password=document.getElementById('password').value;
+          var username=document.getElementById('name').value;
+
+        if(username.length<1){
+          alert("Username can't be empty");
+          return false;
+        }
+        if(password.length<8){
+          alert('Password must be atleast 8 characters long');
+          return false;
+        }
+
+        if(email.length<1 || !email.includes('@')){
+          alert('Enter valid email id');
+          return false;
+         }
+      return true;
+      }
+      </script>
+</body>
+</html>
+

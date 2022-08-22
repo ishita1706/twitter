@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Clone</title>
+    <link href= "/assets/style1.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <style>
+      textarea:focus, input:focus{
+    outline: none;
+}
+    </style>
+  </head>
+  <body>
+    <!-- sidebar starts -->
+    <div class="sidebar">
+      <i class="fab fa-twitter"></i>
+      <div class="sidebarOption active">
+        <span class="material-icons"> home </span>
+        <h2> Home</h2>
+      </div>
+
+
+      <a href="/profile?email=<%= email %>" style="text-decoration:none; color: black;"> <div class="sidebarOption">
+        <span class="material-icons"> perm_identity </span>
+        <h2>Profile</h2>
+      </div></a>
+
+
+      <a href="/logout"><button style="background:red ; cursor: pointer;" class="sidebar__tweet">Logout</button></a>
+    </div>
+    <!-- sidebar ends -->
+
+    <!-- feed starts -->
+    <div class="feed">
+      <div class="feed__header">
+        <h2>Home</h2>
+      </div>
+
+      <!-- tweetbox starts -->
+      <div class="tweetBox">
+        <form action="/add" method="post" onsubmit="return check()">
+          <div class="tweetbox__input">
+            <img
+              src=<%=pic %>
+              alt=""
+            />
+            <input type="text" placeholder="What's happening?"id='content' name='content'/>
+            <input type="hidden" name="email" value=  <%= email %>  >
+            <input type="hidden" name="username" value=  <%= name %>  >
+            <input type="hidden" name="pic" value=  <%= pic %>  >
+          </div>
+          <button class="tweetBox__tweetButton">Tweet</button>
+        </form>
+      </div>
+      <!-- tweetbox ends -->
+
+      <!-- post starts -->
+      <% tweets.forEach(tweet => { %>      
+      <!-- post starts -->
+      <div class="post">
+        <div class="post__avatar">
+    <img  
+           src= <%= tweet.pic %>               
+        alt=""
+          />
+        </div>
+
+        <div class="post__body">
+          <div class="post__header">
+            <div class="post__headerText">
+              <h3>
+                <%= tweet.username %> 
+                <span class="post__headerSpecial"
+                  ><span class="material-icons post__badge"> verified </span><%= tweet.email %> </span
+                >
+              </h3>
+            </div>
+            <div class="post__headerDescription">
+              <p><%= tweet.content %></p>
+            </div>
+          </div>
+
+        </div> 
+      </div>
+      <% }); %> 
+      <!-- post ends -->
+    </div>
+   
+    <!-- feed ends -->
+
+    <!-- widgets starts -->
+    <div class="widgets">
+      
+      <div class="widgets__widgetContainer">
+        <h2 style="text-align: center;">Hii There!</h2>
+        <blockquote class="twitter-tweet">
+          <p lang="en" dir="ltr" style="padding: 10px; font-weight: 600; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+            It's good to see you back! Before you start tweeting make sure to keep the following point in mind. 
+            </p>
+            <p style="padding: 10px; font-weight: 600; font-weight: 600; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; " >
+              Let's not spend any hate. Please ensure that there are not any tweets which may hurt the sentiments of a person or community. Else , we would be forced to take down your tweet.
+            </p>
+            <p style="padding: 10px; font-weight: 600; font-weight: 600; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">That being said, don't hold back. Twitter was made to allow propagation of free speech. So  start tweeting away.</p>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
+    <!-- widgets ends -->
+    <script>
+      function check(){
+var temp=document.getElementById('content').value;
+temp=temp.trim();
+if(temp.length<1){
+  alert('Please write something');
+  return false;
+}
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+html{
+    height: 100%;
+}
+a{
+    text-decoration: none;
+}
+body{
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+#mainpage{
+    height: 100%;
+    display: flex;
+}
+
+#first{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    overflow: hidden;
+}
+
+#first img{
+    min-width: 100%;
+    min-height: 100%;
+}
+.signup{
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.signup button{
+    background-color: white;
+    border-radius: 100px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.signup-contents{
+    display: flex;
+    width: 300px;
+    font-size: 20px;
+    justify-content: center;
+ }
+
+ .signup-logo img{
+    height: 20px;
+    border-radius: 20px;
+ }
+
+ .signup-logo{
+    font-size: 20px;
+    margin-top: 2px;
+ }
+ 
+ .signup-title{
+     font-size: 16px;
+     color: #657786;
+ margin: auto 0;
+ margin-left: 10px;
+ font-weight: 500;
+ }
+
+#logo{
+    height: 50px;
+    margin: 30px;
+}
+#tnc{
+    padding: 3px 25px;
+}
+#tnc a{
+text-decoration: none;
+color: rgb(55, 144, 207);
+}
+#text1{
+    text-decoration: solid;
+    font-size: 80px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 20px;
+    
+}
+#text2{
+    text-decoration: solid;
+    size: 150px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 20px;
+}
+
+#tnc{
+    font-size: x-small;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#second{
+    /* width: 50%; */
+    flex: 1;
+}
+
+
+
